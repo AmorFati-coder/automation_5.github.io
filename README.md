@@ -1,37 +1,45 @@
-## Welcome to GitHub Pages
+# 一个HTML+JS编写的抽签（抽奖）程序
 
-You can use the [editor on GitHub](https://github.com/AmorFati-coder/automation_5/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+### 感谢@gavinjzx（阿提）成熟的源代码与详细的注释
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### 我@PillarsZhang（章鱼DS）fork并改进这个项目是为了班级的班队课抽签用的
 
-### Markdown
+***
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### *以下为原版+补充的readme*
 
-```markdown
-Syntax highlighted code block
+> 把代码分享出来，有需要的朋友可载下来，修改成自己所需要的格式。
+>
+>因为使用了css3 animation，所以建议使用chrome,firefox,IE10及以上（IE9及以下不支持css3 animation）。
 
-# Header 1
-## Header 2
-### Header 3
+***
 
-- Bulleted
-- List
+- 调用库：
+  - js: jquery
+  - css: animation
 
-1. Numbered
-2. List
+- 文件结构：
+  - \index.html  			抽奖主界面
+  - \js\index.js	 		JS主程序
+  - \js\lib\jquery-1.12.4.min.js	jQuery文件
+  - \js\lib\common.js		一些公用函数
+  - \css\animate.css		css3 animation库
+  - \css\style.less			样式Less文件
+  - \css\widget\*.less		style.less引用的less文件
+  - \css\img\			页面上所用到的图标文件
 
-**Bold** and _Italic_ and `Code` text
+- 一些个性化设置
+  - \css\img\bg.png 背景图片（包括上方几个字，用PS改，PSD文件已经放在旁边了）
 
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/AmorFati-coder/automation_5/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+- PillarsZhang所做的改进
+  - \js\autozoom.js 自适应缩放
+  - \js\settings.js 更改名单及相关设置
+  - 是否每次抽取后把人数框清空
+  - 去掉跳动的文本框的外框
+  - 用unselectable="on"来去掉文本框的光标
+  - 开始按钮后显示剩余人数
+  - 添加一个“准备就绪”文字（改了好多诶）
+  - 还有......
+***
+### 界面预览
+~~在线演示：[http://demo.pizyds.xyz/LuckyDraw/index.html](http://demo.pizyds.xyz/LuckyDraw/index.html)~~
