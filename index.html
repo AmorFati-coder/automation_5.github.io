@@ -1,79 +1,83 @@
+<!doctype html>
 <html>
-    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
-    <body>
-        <div id="box">随机点名</div>
-        <span id="span">开始</span>
-    </body>
+    <head>
+        <meta charset="utf-8">
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+        <body>
+            <div id="box">随机点名</div>
+            <span id="span">开始</span>
+        </body>
+    </head>
+
+    <style>
+        #box {
+          width: 30%;
+          height: 200px;
+          background-color: rgb(205, 236, 236);
+          border: 1px solid rgb(18, 137, 216);
+          font-size: 40px;
+          font-weight: 600;
+          font-family: KaiTi, Helvetica, sans-serif;
+          line-height: 200px;
+          text-align: center;
+          margin: 25px auto;
+          border-radius: 10px;
+        }
+        span {
+          display: block;
+          width: 30%;
+          height: 44px;
+          line-height: 44px;
+          background-color: rgb(6, 126, 178);
+          border-radius: 10px;
+          color: #fff;
+          text-align: center;
+          margin: 0 auto;
+          font-size: 18px;
+          font-family: 华文细黑;
+        }
+        span:hover {
+          background-color: rgb(7, 122, 143);
+        }
+      </style>
+    
+    
+    <script>
+        !function(n) {
+        var e = n.document,
+        t = e.documentElement,
+        i = 640,
+        d = i / 100,
+        o = "orientationchange" in n ? "orientationchange": "resize",
+        a = function() {
+        var n = t.clientWidth || 320;
+        n > 640 && (n = 640),
+        t.style.fontSize = n / d + "px"
+        };
+        e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
+        } (window);
+        var arr = ['李冠辰', '王文昊', '王瀚霖', '王雨薇', '李波', '杨琮皓', '刘潇楠', '邹臻善', '于建', '何庆', '凌文成', '鲜一卓', '肖名栋', '孙嘉璐', '张清骅', '李一堂', '王琳博', '黄帅', '刘浪', '阳晴', '刘彬', '王志松', '张可欣', '李昕宇', '杨润楠', '柯力', '谢晓薇', '陈冉', '陶旺', '杨小珑']
+        var box = document.getElementById("box");
+        var span = document.getElementById("span");//获取元素
+        var state = 0;//定义状态，开始和结束
+        var t;
+        span.onclick = function () {
+          if (state == 0) {
+            //如果是0即开始随机，变为1时结束，不是0时执行else
+            clearInterval(t);
+            t = setInterval(function () {
+              // console.log(1);
+              var sj = Math.round(Math.random() * (arr.length - 1));
+              console.log(arr[sj]);
+              box.innerHTML = arr[sj];
+            }, 3)
+            span.innerHTML = "结束"//更改按钮的内容
+            state=1;
+          }else{
+            state=0;
+            clearInterval(t);
+            span.innerHTML = "开始"
+          }
+        }
+      </script>
 </html>
-
-<style>
-    #box {
-      width: 30%;
-      height: 200px;
-      background-color: rgb(205, 236, 236);
-      border: 1px solid rgb(18, 137, 216);
-      font-size: 40px;
-      font-weight: 600;
-      font-family: KaiTi, Helvetica, sans-serif;
-      line-height: 200px;
-      text-align: center;
-      margin: 25px auto;
-      border-radius: 10px;
-    }
-    span {
-      display: block;
-      width: 30%;
-      height: 44px;
-      line-height: 44px;
-      background-color: rgb(6, 126, 178);
-      border-radius: 10px;
-      color: #fff;
-      text-align: center;
-      margin: 0 auto;
-      font-size: 18px;
-      font-family: 华文细黑;
-    }
-    span:hover {
-      background-color: rgb(7, 122, 143);
-    }
-  </style>
-
-
-<script>
-    !function(n) {
-    var e = n.document,
-    t = e.documentElement,
-    i = 640,
-    d = i / 100,
-    o = "orientationchange" in n ? "orientationchange": "resize",
-    a = function() {
-    var n = t.clientWidth || 320;
-    n > 640 && (n = 640),
-    t.style.fontSize = n / d + "px"
-    };
-    e.addEventListener && (n.addEventListener(o, a, !1), e.addEventListener("DOMContentLoaded", a, !1))
-    } (window);
-    var arr = ['李冠辰', '王文昊', '王瀚霖', '王雨薇', '李波', '杨琮皓', '刘潇楠', '邹臻善', '于建', '何庆', '凌文成', '鲜一卓', '肖名栋', '孙嘉璐', '张清骅', '李一堂', '王琳博', '黄帅', '刘浪', '阳晴', '刘彬', '王志松', '张可欣', '李昕宇', '杨润楠', '柯力', '谢晓薇', '陈冉', '陶旺', '杨小珑']
-    var box = document.getElementById("box");
-    var span = document.getElementById("span");//获取元素
-    var state = 0;//定义状态，开始和结束
-    var t;
-    span.onclick = function () {
-      if (state == 0) {
-        //如果是0即开始随机，变为1时结束，不是0时执行else
-        clearInterval(t);
-        t = setInterval(function () {
-          // console.log(1);
-          var sj = Math.round(Math.random() * (arr.length - 1));
-          console.log(arr[sj]);
-          box.innerHTML = arr[sj];
-        }, 3)
-        span.innerHTML = "结束"//更改按钮的内容
-        state=1;
-      }else{
-        state=0;
-        clearInterval(t);
-        span.innerHTML = "开始"
-      }
-    }
-  </script>
