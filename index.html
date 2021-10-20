@@ -1,42 +1,68 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>2017春晖中学高二(11)班豪华版抽签器</title>
-    <link rel="stylesheet" href="css/style.css"/>
-    <link rel="stylesheet" href="css/animate.css"/>
-    <script src="js/lib/jquery-1.12.4.min.js"></script>
-    <script src="js/lib/common.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/autozoom.js"></script>  
-</head>
 <body>
-<div>
-    <header>
-        <div></div>
-    </header>
-    <section>
-        <div class="hide" id="luckyDrawing"><input id="showName" readonly unselectable="on" type="text"></div>
-        <!--PillarsZhang:用unselectable="on"来去掉文本框的光标-->
-        <div class="hide" id="result">
-            <div>
-                <font size="10">准备就绪</font>
-            </div>
-        </div>
-    </section>
-    <footer>
-        <div><input type="number" id="txtNum" value="" placeholder="请输入中奖人数">
-            <button id="btnStart">开始</button>
-            <button id="btnReset">&nbsp;</button>
-        </div>
-    </footer>
-
-</div>
-<div id="bgLuckyDrawEnd"></div>
-<div id="iconDiv" class="animated fadeIn"><span><img src="css/img/icon/01.png"> </span><span><img
-        src="css/img/icon/02.png"> </span><span><img src="css/img/icon/03.png"> </span><span><img
-        src="css/img/icon/04.png"> </span><span><img src="css/img/icon/05.png"> </span><span><img
-        src="css/img/icon/06.png"> </span></div>
+    <div id="box">随机点名</div>
+    <span id="span">开始</span>
 </body>
-</html>
+
+
+<style>
+    #box {
+      width: 30%;
+      height: 200px;
+      background-color: rgb(205, 236, 236);
+      border: 1px solid rgb(18, 137, 216);
+      font-size: 40px;
+      font-weight: 600;
+      font-family: KaiTi, Helvetica, sans-serif;
+      line-height: 200px;
+      text-align: center;
+      margin: 25px auto;
+      border-radius: 10px;
+    }
+    span {
+      display: block;
+      width: 30%;
+      height: 44px;
+      line-height: 44px;
+      background-color: rgb(6, 126, 178);
+      border-radius: 10px;
+      color: #fff;
+      text-align: center;
+      margin: 0 auto;
+      font-size: 18px;
+      font-family: 华文细黑;
+    }
+    span:hover {
+      background-color: rgb(7, 122, 143);
+    }
+    body
+    {
+        background-image: url(./back.png);
+    }
+  </style>
+
+
+<script>
+    var arr = ['李冠辰', '王文昊', '王瀚霖', '王雨薇', '李波', '杨琮皓', '刘潇楠', '邹臻善', '于建', '何庆', '凌文成', '鲜一卓', '肖名栋', '孙嘉璐', '张清骅', '李一堂', '王琳博', '黄帅', '刘浪', '阳晴', '刘彬', '王志松', '张可欣', '李昕宇', '杨润楠', '柯力', '谢晓薇', '陈冉', '陶旺', '杨小珑']
+    var box = document.getElementById("box");
+    var span = document.getElementById("span");//获取元素
+    var state = 0;//定义状态，开始和结束
+    var t;
+    span.onclick = function () {
+      if (state == 0) {
+        //如果是0即开始随机，变为1时结束，不是0时执行else
+        clearInterval(t);
+        t = setInterval(function () {
+          // console.log(1);
+          var sj = Math.round(Math.random() * (arr.length - 1));
+          console.log(arr[sj]);
+          box.innerHTML = arr[sj];
+        }, 3)
+        span.innerHTML = "结束"//更改按钮的内容
+        state=1;
+      }else{
+        state=0;
+        clearInterval(t);
+        span.innerHTML = "开始"
+      }
+    }
+  </script>
